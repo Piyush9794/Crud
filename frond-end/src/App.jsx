@@ -4,6 +4,8 @@ import View from './Components/View'
 import Edit from './Components/Edit'
 import Navbar from './Components/Navbar'
 import './App.css'
+import Login from './Components/Login'
+import Pagination from './Components/Pagination'
 // import { ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 function App() {
@@ -12,9 +14,11 @@ function App() {
     <>
 <Navbar />
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
         <Route path='/view' element={<View />} />
         <Route path='/edit/:id' element={<Edit />} />
+        <Route path='/' element={<Login />} />
+        <Route path='/pagination' element={<Pagination />} />
          {/* <ToastContainer position="top-right" autoClose={2000} /> */}
       </Routes>
 

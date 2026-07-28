@@ -152,7 +152,7 @@ const View = () => {
             isOpen && (
               <div className="fixed inset-0 bg-black/50 flex justify-center items-center">
 
-                <div className="bg-white p-6 rounded-lg w-[400px]">
+                <div className="bg-white p-6 rounded-lg `w-[400px]` ">
                   <h2 className="text-2xl font-bold mb-5">Edit User</h2>
                   <input className="border w-full p-2 mb-3 rounded" type="text" value={editData.name} onChange={(e) => {
                     setEditData({

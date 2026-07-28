@@ -35,9 +35,9 @@ const Home = () => {
     }
 
     return (
-        <section className="bg-gray-100 px-5 min-h-screen">
+        <section className="bg-gray-100 px-5 min-h-screen flex items-center  justify-center">
 
-            <div className="w-full max-w-md border border-dark-300 rounded-xl shadow-lg p-8 mt-6 items-center justify-center ">
+            <div className="w-full max-w-md border border-dark-300 rounded-xl shadow-lg p-8 mt-6  ">
                 <h1 className="text-3xl font-bold text-center mb-6">Regsiter</h1>
 
 
