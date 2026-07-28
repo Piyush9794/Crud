@@ -48,9 +48,9 @@ const Navbar = () => {
                     {/* Mobile Menu  */}
                     {menuOpen && (
                         <div className="md:hidden flex flex-col items-center gap-2  py-2">
-                            <a to="/home" className="hover:text-yellow-300">Register</a>
-                            <a to="/view" className="hover:text-yellow-300">View</a>
-                            <a to="/edit" className="hover:text-yellow-300">Edit</a>
+                            <Link to="/home" className="hover:text-yellow-300">Register</Link>
+                            <Link to="/view" className="hover:text-yellow-300">View</Link>
+                            <Link to="/edit" className="hover:text-yellow-300">Edit</Link>
                             
 
                             <button className="bg-white text-blue-600 px-5 py-2 rounded-lg hover:bg-gray-200">
