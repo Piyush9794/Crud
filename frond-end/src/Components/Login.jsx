@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 // import { useNavigate } from 'react-router-dom';
 
@@ -41,7 +42,13 @@ const Login = () => {
                         <input {...register('password')} placeholder='password' className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
                         {errors.password && <p className='text-red-500'>Please enter number for password.</p>}
                         <button className="w-full   border-gray-300 rounded-lg px-4 py-3 btn bg-amber-800 text-white  focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border border-2" onClick={() => { LoginFunction() }}>Login</button>
-
+                        {/* Register Button */}
+                        <Link
+                            to="/home"
+                            className="block w-full text-center rounded-lg px-4 py-3 border border-amber-800 text-amber-800 hover:bg-amber-800 hover:text-white transition"
+                        >
+                            Register
+                        </Link>
                     </form>
                 </div>
             </section>
