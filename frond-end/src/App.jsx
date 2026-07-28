@@ -14,10 +14,10 @@ function App() {
     <>
 <Navbar />
       <Routes>
+        <Route path='/' element={<Login />} />
         <Route path='/home' element={<Home />} />
         <Route path='/view' element={<View />} />
         <Route path='/edit/:id' element={<Edit />} />
-        <Route path='/' element={<Login />} />
         <Route path='/pagination' element={<Pagination />} />
          {/* <ToastContainer position="top-right" autoClose={2000} /> */}
       </Routes>

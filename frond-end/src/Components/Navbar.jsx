@@ -33,7 +33,7 @@ const Navbar = () => {
                     {/* Desktop Login button */}
                     <div className="hidden md:block">
                         <button className="bg-white text-blue-600 px-6 py-2 ">
-                           <Link to="/login">Login</Link> 
+                           <Link to="/">Login</Link> 
                         </button>
                     </div>
 

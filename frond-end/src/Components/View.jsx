@@ -90,7 +90,7 @@ const View = () => {
             <tr>
               <th className="px-6 py-4 text-left">Name</th>
               <th className="px-6 py-4 text-left">Email</th>
-              <th className="px-6 py-4 text-left">Password</th>
+              <th className="px-6 py-4 text-left " type="password">Password</th>
               <th className="px-6 py-4 text-left">Created At</th>
               <th className="px-6 py-4 text-left">Updated At</th>
               <th className="px-6 py-4 text-center">Action</th>
