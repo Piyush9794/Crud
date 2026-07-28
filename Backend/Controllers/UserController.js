@@ -72,6 +72,69 @@ const UserDelete = async (req, res) => {
   });
 };
 
+// const LoginFunction = async (req,res)=>{
+//   const {email,password} = req.body;
+//   if(!email || !password){
+//     res.json({
+//       success:false,
+//       code:402,
+//       message:"Miisining Information",
+//       error:true,
+//     })
+//   }else{
+//     const result = await UserModel.findOne({email,password});
+//      res.json({
+//       success:true,
+//       code:201,
+//       message:"Login Successfully !",
+//       error:false,
+//       data:result
+//     })
+//   }
+// }
+
+const LoginFunction = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.json({
+        success: false,
+        code: 400,
+        message: "Missing Information",
+        error: true,
+      });
+    }
+
+    const user = await UserModel.findOne({ email, password });
+
+    if (!user) {
+      return res.json({
+        success: false,
+        code: 401,
+        message: "Invalid Email or Password",
+        error: true,
+      });
+    }
+
+    return res.json({
+      success: true,
+      code: 200,
+      message: "Login Successfully!",
+      error: false,
+      data: user,
+    });
+  } catch (err) {
+    console.log(err);
+
+    res.status(500).json({
+      success: false,
+      message: "Server Error",
+    });
+  }
+};
+
+
 const UserEdit = async (req, res) => {
   const id = req.params.id;
   console.log("User Id :", id);
@@ -90,4 +153,4 @@ const UserEdit = async (req, res) => {
   });
 };
 
-module.exports = { userRegister, userFetch, UserDelete, UserEdit };
+module.exports = { userRegister, userFetch, UserDelete, UserEdit ,LoginFunction};

@@ -5,12 +5,13 @@ const {
   userRegister,
   userFetch,
   UserDelete,
-  UserEdit
+  UserEdit,LoginFunction
 } = require("../Controllers/UserController");
 
 userRouter.post("/reg", userRegister);
 userRouter.get("/get", userFetch);
 userRouter.delete("/del/:id", UserDelete);
 userRouter.put("/edit/:id", UserEdit);
+userRouter.post("/login", LoginFunction);
 
 module.exports = userRouter;
