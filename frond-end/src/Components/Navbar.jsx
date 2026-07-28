@@ -19,14 +19,14 @@ const Navbar = () => {
 
                     {/* desktop  Menu */}
                     <div className="hidden lg:flex  gap-8">
-                        <Link to="/home" className="hover:text-yellow-300">Home</Link>
+                        <Link to="/home" className="hover:text-yellow-300">Register</Link>
                         <Link to="/view" className="hover:text-yellow-300">View</Link>
                         <Link to="/edit" className="hover:text-yellow-300">Edit</Link>
-                        <Link to="/#" className="hover:text-yellow-300">Blog</Link>
+                        <Link to="/blog" className="hover:text-yellow-300">Blog</Link>
 
-                        <Link to="#" className="hover:text-yellow-300">About</Link>
-                        <Link to="#" className="hover:text-yellow-300">Contact_Us</Link>
-                        <Link to="#" className="hover:text-yellow-300">Contact_Us</Link>
+                        <Link to="/about" className="hover:text-yellow-300">About</Link>
+                        <Link to="/Contact_Us" className="hover:text-yellow-300">Contact_Us</Link>
+                      
                         <Link to="/pagination" className="hover:text-yellow-300">Pagination</Link>
 
                     </div>
@@ -48,14 +48,13 @@ const Navbar = () => {
                     {/* Mobile Menu  */}
                     {menuOpen && (
                         <div className="md:hidden flex flex-col items-center gap-2  py-2">
-                            <a to="#" className="hover:text-yellow-300">Home</a>
-                            <a to="#" className="hover:text-yellow-300">View</a>
-                            <a to="#" className="hover:text-yellow-300">Edit</a>
-                            <a to="#" className="hover:text-yellow-300">Edit</a>
-                            <a to="#" className="hover:text-yellow-300">Edit</a>
+                            <a to="/home" className="hover:text-yellow-300">Register</a>
+                            <a to="/view" className="hover:text-yellow-300">View</a>
+                            <a to="/edit" className="hover:text-yellow-300">Edit</a>
+                            
 
                             <button className="bg-white text-blue-600 px-5 py-2 rounded-lg hover:bg-gray-200">
-                                Login
+                              <Link to="/">Login</Link>   
                             </button>
 
                         </div>

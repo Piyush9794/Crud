@@ -111,8 +111,11 @@ const View = () => {
                   {data.email}
                 </td>
 
-                <td className="px-6 py-4">
+                {/* <td className="px-6 py-4">
                   {data.password}
+                </td> */}
+                <td className="px-6 py-4">
+                  {"*".repeat(data.password.length)}
                 </td>
 
                 <td className="px-6 py-4">
