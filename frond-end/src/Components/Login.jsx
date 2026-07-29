@@ -21,7 +21,8 @@ const Login = () => {
         }
     );
     const LoginFunction = async (data) => {
-        const url = "http://localhost:9000/api/login";
+        // const url = "http://localhost:9000/api/login";
+        const url = "https://crud-back-end-14id.onrender.com/api/login";
         const result = await axios.post(url, data)
         // toast.success()
         toast.success(result.data.message);
