@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 // import { useParams } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 const View = () => {
   // const { _id } = useParams()
 
@@ -21,9 +22,14 @@ const View = () => {
     // eslint-disable-next-line react-hooks/immutability
     fetchFun();
   }, []);
+
+
+  
   const fetchFun = async () => {
     try {
-      const url = "http://localhost:9000/api/get";
+      // const url = "http://localhost:9000/api/get";
+            const url = `https://crud-back-end-14id.onrender.com/api/get`;
+
 
       const res = await axios.get(url);
 
@@ -42,7 +48,9 @@ const View = () => {
   };
 
   const DeleteUser = async (_id) => {
-    const url = `http://localhost:9000/api/del/${_id}`;
+    // const url = `http://localhost:9000/api/del/${_id}`;
+          const url = `https://crud-back-end-14id.onrender.com/api/del/${_id}`;
+
     // alert(_id)
     const response = await axios.delete(url)
     toast.success(response.data.message)
