@@ -24,11 +24,11 @@ const View = () => {
   }, []);
 
 
-  
+
   const fetchFun = async () => {
     try {
       // const url = "http://localhost:9000/api/get";
-            const url = `https://crud-back-end-14id.onrender.com/api/get`;
+      const url = `${import.meta.env.VITE_API_URL}/api/get`;
 
 
       const res = await axios.get(url);
@@ -49,7 +49,8 @@ const View = () => {
 
   const DeleteUser = async (_id) => {
     // const url = `http://localhost:9000/api/del/${_id}`;
-          const url = `https://crud-back-end-14id.onrender.com/api/del/${_id}`;
+    const url = `${import.meta.env.VITE_API_URL}/api/del/${_id}`;
+
 
     // alert(_id)
     const response = await axios.delete(url)
@@ -75,7 +76,7 @@ const View = () => {
   const UpdateUser = async () => {
     try {
       // const url = `http://localhost:9000/api/edit/${editData._id}`;
-      const url = `https://crud-back-end-14id.onrender.com/api/edit/${editData._id}`;
+      const url = `${import.meta.env.VITE_API_URL}/api/edit/${editData._id}`;
 
       const response = await axios.put(url, editData);
 

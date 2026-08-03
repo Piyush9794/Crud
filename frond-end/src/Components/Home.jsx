@@ -24,16 +24,37 @@ const Home = () => {
 
 
 
-    const SaveFunction = async (data) => {
-        // const url = "http://localhost:9000/api/reg";
-        const url = "https://crud-back-end-14id.onrender.com/api/reg";
-        const result = await axios.post(url, data)
-        // toast.success()
-        toast.success(result.data.message);
-        navigate("/view")
-        console.log(result);
+    // const SaveFunction = async (data) => {
+    //     // const url = "http://localhost:9000/api/reg";
+    //     const url = "https://crud-back-end-14id.onrender.com/api/reg";
 
-    }
+    //     const result = await axios.post(url, data)
+    //     // toast.success()
+    //     toast.success(result.data.message);
+    //     navigate("/view")
+    //     console.log(result);
+
+    // }
+
+
+
+
+    const SaveFunction = async (data) => {
+        try {
+            const url = "https://crud-back-end-14id.onrender.com/api/reg";
+
+            const result = await axios.post(url, data);
+
+            console.log("#####3",result.data);
+            toast.success(result.data.message);
+            navigate("/view");
+        } catch (error) {
+            console.log("Error:", error);
+            console.log("Response:", error.response);
+            console.log("Data:", error.response?.data);
+            toast.error(error.response?.data?.message || "Something went wrong");
+        }
+    };
 
     return (
         <section className="bg-gray-100 px-5 min-h-screen flex items-center  justify-center">
