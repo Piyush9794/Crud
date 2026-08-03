@@ -10,13 +10,35 @@ const app = express();
 app.use(express.json());
 // app.use(cors())
 
+// app.use(
+//   cors({
+//     origin: [
+//       "http://localhost:5173",
+//       "https://piyush9794.github.io",
+//     ],
+//     credentials: true,
+//   })
+// );
+const allowedOrigins = [
+  "http://localhost:5173",              // Local Development
+  "https://piyush9794.github.io",       // GitHub Pages
+];
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://piyush9794.github.io",
-    ],
+    origin: function (origin, callback) {
+      // Postman ya server-to-server requests ke liye
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 app.use("/api", userRouter);
