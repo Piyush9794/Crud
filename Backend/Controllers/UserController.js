@@ -3,41 +3,80 @@ const UserModel = require("../Model/UserSchema");
 
 //For registration
 
+// const userRegister = async (req, res) => {
+//   try {
+//     // const { name, email, password } = req.body;
+//     const { name, email, password } = req.body;
+//     const isExist = await UserModel.findOne({ email });
+//     if (isExist) {
+//       res.json({
+//         success: false,
+//         code: 401,
+//         message: "This email already exist ",
+//         error: true,
+//         data: isExist,
+//       });
+//     } else {
+//       const data = new UserModel({ name, email, password });
+//       const result = await data.save();
+//       res.json({
+//         success: true,
+//         code: 201,
+//         message: "Succesfully Register ",
+//         error: false,
+//         data: result,
+//       });
+//     }
+//   } catch (error) {
+//     console.log(error);
+//     res.json({
+//       success: false,
+//       code: 404,
+//       message: " Interval server Error ",
+//       error: true,
+//       data: "",
+//     });
+//   }
+// };
+
+
+
 const userRegister = async (req, res) => {
   try {
-    // const { name, email, password } = req.body;
+    console.log("Register API Hit");
+    console.log(req.body);
+
     const { name, email, password } = req.body;
+
     const isExist = await UserModel.findOne({ email });
+
     if (isExist) {
-      res.json({
+      return res.status(409).json({
         success: false,
-        code: 401,
-        message: "This email already exist ",
-        error: true,
-        data: isExist,
-      });
-    } else {
-      const data = new UserModel({ name, email, password });
-      const result = await data.save();
-      res.json({
-        success: true,
-        code: 201,
-        message: "Succesfully Register ",
-        error: false,
-        data: result,
+        message: "Email already exists",
       });
     }
+
+    const data = new UserModel({ name, email, password });
+    const result = await data.save();
+
+    return res.status(201).json({
+      success: true,
+      message: "Successfully Registered",
+      data: result,
+    });
   } catch (error) {
-    console.log(error);
-    res.json({
+    console.error("Register Error:", error);
+
+    return res.status(500).json({
       success: false,
-      code: 404,
-      message: " Interval server Error ",
-      error: true,
-      data: "",
+      message: error.message,
     });
   }
 };
+
+
+
 
 //For fetch User
 const userFetch = async (req, res) => {
