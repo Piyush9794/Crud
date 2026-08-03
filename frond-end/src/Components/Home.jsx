@@ -25,7 +25,8 @@ const Home = () => {
 
 
     const SaveFunction = async (data) => {
-        const url = "http://localhost:9000/api/reg";
+        // const url = "http://localhost:9000/api/reg";
+        const url = "https://crud-back-end-14id.onrender.com/api/reg";
         const result = await axios.post(url, data)
         // toast.success()
         toast.success(result.data.message);

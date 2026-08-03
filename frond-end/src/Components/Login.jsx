@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Schema = yup.object().shape({
 
@@ -14,7 +14,7 @@ const Schema = yup.object().shape({
 })
 
 const Login = () => {
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     const { register, handleSubmit, formState: { errors }, } = useForm(
         {
             resolver: yupResolver(Schema)
@@ -26,7 +26,7 @@ const Login = () => {
         const result = await axios.post(url, data)
         // toast.success()
         toast.success(result.data.message);
-        // navigate("/view")
+        navigate("/view")
         console.log(result);
 
     }

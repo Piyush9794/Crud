@@ -66,7 +66,8 @@ const View = () => {
   //   }
   const UpdateUser = async () => {
     try {
-      const url = `http://localhost:9000/api/edit/${editData._id}`;
+      // const url = `http://localhost:9000/api/edit/${editData._id}`;
+      const url = `https://crud-back-end-14id.onrender.com/api/edit/${editData._id}`;
 
       const response = await axios.put(url, editData);
 

@@ -8,6 +8,7 @@ import Login from './Components/Login'
 import Pagination from './Components/Pagination'
 // import { ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
+import ProductComponents from './Components/ClassComponents'
 function App() {
 
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/view' element={<View />} />
         <Route path='/edit/:id' element={<Edit />} />
         <Route path='/pagination' element={<Pagination />} />
+        <Route path='/Class' element={<ProductComponents />} />
          {/* <ToastContainer position="top-right" autoClose={2000} /> */}
       </Routes>
 
