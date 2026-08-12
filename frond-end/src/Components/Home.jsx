@@ -41,11 +41,13 @@ const Home = () => {
 
     const SaveFunction = async (data) => {
         try {
-            const url = "https://crud-back-end-14id.onrender.com/api/reg";
+
+            // const url = "https://crud-back-end-14id.onrender.com/api/reg";
+            const url = `${import.meta.env.VITE_API_URL}/api/reg`;
 
             const result = await axios.post(url, data);
 
-            console.log("#####3",result.data);
+            console.log("#####3", result.data);
             toast.success(result.data.message);
             navigate("/view");
         } catch (error) {
