@@ -43,9 +43,11 @@ const Home = () => {
         try {
 
             // const url = "https://crud-back-end-14id.onrender.com/api/reg";
-            const url = `${import.meta.env.VITE_API_URL}/api/reg`;
+            // const url = `${import.meta.env.VITE_API_URL}/api/reg`;
+            const url2 = "https://crud-back-end-14id.onrender.com/api/reg";
 
-            const result = await axios.post(url, data);
+
+            const result = await axios.post(url2, data);
 
             console.log("#####3", result.data);
             toast.success(result.data.message);
