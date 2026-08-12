@@ -41,13 +41,10 @@ const Home = () => {
 
     const SaveFunction = async (data) => {
         try {
+            const API_URL = import.meta.env.VITE_API_URL || "https://crud-back-end-14id.onrender.com";
+            const url = `${API_URL}/api/reg`;
 
-            // const url = "https://crud-back-end-14id.onrender.com/api/reg";
-            // const url = `${import.meta.env.VITE_API_URL}/api/reg`;
-            const url2 = "https://crud-back-end-14id.onrender.com/api/reg";
-
-
-            const result = await axios.post(url2, data);
+            const result = await axios.post(url, data);
 
             console.log("#####3", result.data);
             toast.success(result.data.message);
@@ -64,18 +61,18 @@ const Home = () => {
         <section className="bg-gray-100 px-5 min-h-screen flex items-center  justify-center">
 
             <div className="w-full max-w-md border border-dark-300 rounded-xl shadow-lg p-8 mt-6  ">
-                <h1 className="text-3xl font-bold text-center mb-6">Regsiter</h1>
+                <h1 className="text-3xl font-bold text-center mb-6">Register</h1>
 
 
                 <form onSubmit={handleSubmit((data) => SaveFunction(data))} className="space-y-5">
                     <input {...register('name')} placeholder='Name' className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    {errors.name && <p className='text-red-500'>Please enter number for age.</p>}
+                    {errors.name && <p className='text-red-500'>Name is required.</p>}
 
                     <input {...register('email')} placeholder='Email' className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    {errors.email && <p className='text-red-500'>Please enter number for age.</p>}
-                    <input {...register('password')} placeholder='password' className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    {errors.email && <p className='text-red-500'>Please enter number for age.</p>}
-                    <input type="submit" className="w-full   border-gray-300 rounded-lg px-4 py-3 btn bg-amber-800 text-white  focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border border-2" />
+                    {errors.email && <p className='text-red-500'>Email is required.</p>}
+                    <input {...register('password')} type="password" placeholder='Password' className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    {errors.password && <p className='text-red-500'>Password is required.</p>}
+                    <input type="submit" className="w-full border-gray-300 rounded-lg px-4 py-3 btn bg-amber-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border border-2 cursor-pointer" />
                 </form>
 
             </div>

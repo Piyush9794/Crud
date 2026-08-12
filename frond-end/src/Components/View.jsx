@@ -25,69 +25,43 @@ const View = () => {
 
 
 
+  const API_URL = import.meta.env.VITE_API_URL || "https://crud-back-end-14id.onrender.com";
+
   const fetchFun = async () => {
     try {
-      // const url = "http://localhost:9000/api/get";
-      const url = `${import.meta.env.VITE_API_URL}/api/get`;
-
-
+      const url = `${API_URL}/api/get`;
       const res = await axios.get(url);
-
-      // setData(result.data);
       setUsers(res.data.data);
-
-      // toast.success(res.data.message);
-      // console.log(res.data.name, "******");
-
-      console.log(res.data.data[0].name);
-      // console.log("######",result.data.data)
-
     } catch (error) {
       toast.error(error.response?.data?.message || "Something went wrong");
     }
   };
 
   const DeleteUser = async (_id) => {
-    // const url = `http://localhost:9000/api/del/${_id}`;
-    const url = `${import.meta.env.VITE_API_URL}/api/del/${_id}`;
-
-
-    // alert(_id)
-    const response = await axios.delete(url)
-    toast.success(response.data.message)
-    fetchFun()
-
-
-  }
+    try {
+      const url = `${API_URL}/api/del/${_id}`;
+      const response = await axios.delete(url);
+      toast.success(response.data.message);
+      fetchFun();
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Error deleting user");
+    }
+  };
 
   const handleEdit = (users) => {
-    setEditData(users)
-    setIsOpen(true)
+    setEditData(users);
+    setIsOpen(true);
+  };
 
-  }
-  //   const UpdateUser = async ( ) => {
-  //     const url = `http://localhost:9000/api/edit/${editData._id}`;
-  //     const response = await axios.put(url,editData)
-  //     toast.success(response.data.message)
-  //  setIsOpen(false);
-
-
-  //   }
   const UpdateUser = async () => {
     try {
-      // const url = `http://localhost:9000/api/edit/${editData._id}`;
-      const url = `${import.meta.env.VITE_API_URL}/api/edit/${editData._id}`;
-
+      const url = `${API_URL}/api/edit/${editData._id}`;
       const response = await axios.put(url, editData);
-
       toast.success(response.data.message);
-
       setIsOpen(false);
-
       fetchFun();
-
     } catch (error) {
-      toast.error(error.response?.data?.message);
+      toast.error(error.response?.data?.message || "Error updating user");
     }
   };
   return (
